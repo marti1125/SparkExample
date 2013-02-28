@@ -1,0 +1,72 @@
+MongoDB shell version: 2.2.3
+connecting to: test
+> db.users.save(name:"Willy Aguirre",city:"Lima"})
+Thu Feb 28 15:12:00 SyntaxError: missing ) after argument list (shell):1
+> db.users.save({name:"Willy Aguirre",city:"Lima"})
+> db.users.find()
+{ "_id" : ObjectId("512fba1b4037a6a8b5b66e51"), "name" : "Willy Aguirre", "city" : "Lima" }
+> db.users.find().pretty()
+{
+	"_id" : ObjectId("512fba1b4037a6a8b5b66e51"),
+	"name" : "Willy Aguirre",
+	"city" : "Lima"
+}
+> db.users.save({name:"Max",city:"Lima",color:"orange"})
+> db.users.find().pretty()
+{
+	"_id" : ObjectId("512fba1b4037a6a8b5b66e51"),
+	"name" : "Willy Aguirre",
+	"city" : "Lima"
+}
+{
+	"_id" : ObjectId("512fba634037a6a8b5b66e52"),
+	"name" : "Max",
+	"city" : "Lima",
+	"color" : "orange"
+}
+> var w = db.user.findOne({name:"Max"})
+> w
+null
+> var w = db.users.findOne({name:"Max"})
+> w
+{
+	"_id" : ObjectId("512fba634037a6a8b5b66e52"),
+	"name" : "Max",
+	"city" : "Lima",
+	"color" : "orange"
+}
+> w.color="Blue"
+Blue
+> w
+{
+	"_id" : ObjectId("512fba634037a6a8b5b66e52"),
+	"name" : "Max",
+	"city" : "Lima",
+	"color" : "Blue"
+}
+> db.users.find().pretty()
+{
+	"_id" : ObjectId("512fba1b4037a6a8b5b66e51"),
+	"name" : "Willy Aguirre",
+	"city" : "Lima"
+}
+{
+	"_id" : ObjectId("512fba634037a6a8b5b66e52"),
+	"name" : "Max",
+	"city" : "Lima",
+	"color" : "orange"
+}
+> db.users.save(w)
+> db.users.find().pretty()
+{
+	"_id" : ObjectId("512fba1b4037a6a8b5b66e51"),
+	"name" : "Willy Aguirre",
+	"city" : "Lima"
+}
+{
+	"_id" : ObjectId("512fba634037a6a8b5b66e52"),
+	"name" : "Max",
+	"city" : "Lima",
+	"color" : "Blue"
+}
+
