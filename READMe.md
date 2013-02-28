@@ -12,3 +12,8 @@ example route http://localhost:4567/welcome
 * db.hello.insert({name:"MongoDB"})
 * db.hello.findOne()
 * { "_id" : ObjectId("512ee599610c324def2c886d"), "name" : "MongoDB" }
+
+##Spark Routes
+* /
+* /test
+* /echo/cat
