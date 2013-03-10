@@ -2,6 +2,11 @@
 
 the name of the project is: SparkExample
 
+##Run the example
+
+* cd SparkExample
+* mvn compile exec:java -Dexec.mainClass=com.mompany.sparkexample.App
+
 ##Sparkjava and FreeMarker
 
 example route http://localhost:4567/welcome
