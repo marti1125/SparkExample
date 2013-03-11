@@ -25,9 +25,12 @@ public class InsertTest {
 
         collection.drop();
 
+        Random random = new Random();
+
         for (int i = 0; i < 10; i++) {
-            collection.insert(new BasicDBObject("x", new Random().nextInt(2))
-                    .append("y", new Random().nextInt(100)));
+            collection.insert(new BasicDBObject("x", random.nextInt(2))
+                    .append("y", random.nextInt(100))
+                    .append("z", random.nextInt(1000)));
         }
 
         QueryBuilder builder = new QueryBuilder().start("x").is(0)
@@ -55,7 +58,8 @@ public class InsertTest {
         System.out.println(count);
 
         System.out.println("\nFind all: ");
-        DBCursor cursor = collection.find(builder.get());
+        DBCursor cursor = collection.find(query, new BasicDBObject("y", true)
+                .append("_id", 0));
 
         try {
             while (cursor.hasNext()) {
