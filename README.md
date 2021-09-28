@@ -1,19 +1,19 @@
-##Netbeans 7.2.1
+## Netbeans 7.2.1
 
 the name of the project is: SparkExample
 
-##Run the example
+## Run the example
 
 
 	$ cd SparkExample
 	$ mvn compile exec:java -Dexec.mainClass=com.mompany.sparkexample.App
 
-##Sparkjava and FreeMarker
+## Sparkjava and FreeMarker
 
 
 	example route http://localhost:4567/welcome
 
-##Mongodb
+## Mongodb
 
 
 	use course
@@ -21,7 +21,7 @@ the name of the project is: SparkExample
 	db.hello.findOne()
 	{ "_id" : ObjectId("512ee599610c324def2c886d"), "name" : "MongoDB" }
 
-##Spark Routes
+## Spark Routes
 
 
 	/
